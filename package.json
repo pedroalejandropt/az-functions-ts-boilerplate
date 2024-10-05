@@ -1,0 +1,27 @@
+{
+  "name": "az-functions-ts-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/functions/**/*.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "npm run bundle",
+    "build-ts": "tsc",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet...\"",
+    "bundle": "esbuild ./src/**/*.ts --bundle --minify --sourcemap --platform=node --target=node18 --outdir=dist --legal-comments=none --external:@azure/functions-core"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.1",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/html-pdf": "^3.0.3",
+    "@types/node": "18.x",
+    "esbuild": "^0.24.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^4.9.5"
+  }
+}
